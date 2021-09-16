@@ -6,11 +6,13 @@
 
 :root {
   --black: #2B2D42;
-  --white: #FBFAF7;
+  --white: #f0f0f0;
   --green: #68CA87;
   --yellow: #FFE598;
   --violet: #655EB0;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
 
 html,
 body {

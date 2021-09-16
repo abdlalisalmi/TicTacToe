@@ -10,3 +10,16 @@
   color: #0070f3;
   text-decoration: none;
 }
+
+@layer base {
+  .player-info {
+    @apply flex flex-row flex-1 items-center w-2/4
+  }
+  .game-button {
+    @apply flex flex-col justify-center items-center h-10 w-10 bg-green-300 text-white font-normal text-2xl rounded-lg shadow-md;
+  }
+  .empty-game-buttonl {
+    @apply h-10 w-10 bg-gray-200 text-white font-semibold rounded-lg cursor-pointer hover:bg-gray-100;
+  }
+
+}
