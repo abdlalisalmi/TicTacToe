@@ -6,8 +6,8 @@ from channels.db import database_sync_to_async
 class GamePlay(AsyncJsonWebsocketConsumer):
 
     async def connect(self):
-        self.room_name = "home_page"
-        self.room_group_name = 'home_page_group'
+        self.room_name = self.scope['url_route']['kwargs']['room']
+        self.room_group_name = f'group_{self.room_name}'
         await self.channel_layer.group_add(
             self.room_group_name,
             self.channel_name
@@ -22,13 +22,10 @@ class GamePlay(AsyncJsonWebsocketConsumer):
 
     async def receive(self, text_data):
         print(text_data)
-        message, code = await self.badge_check(text_data)
         await self.channel_layer.group_send(self.room_group_name,
         {
             'type': 'send_message',
-            'message': message,
-            "code": code,
-            "id": text_data
+            'message': text_data,
         })
 
     async def send_message(self, res):
